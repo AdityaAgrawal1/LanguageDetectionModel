@@ -1,0 +1,154 @@
+NLP is analysis or generation of natural language text using computers.
+Natural Language is what we speak.
+
+Some things which are common in every language is wave forms and syllables, grammatical tones, if we can feed this to our model then we surely can do many things
+
+example:
+Language detection
+
+Machine/ language translation -- In google we have multiple language translators, they build it through time.
+Input some text automatic detection will happen. and then translation.
+
+Next word prediction-Language Model
+Enhance an existing model or derive a new use case.
+In Phone, or gmail we have words predictor,
+of what we could right next according to previous history and frequency of words used together. based on probability and statistics.
+
+Automated Query Answering-- 
+Most industries are working upon it. In a retail store, all products are associated with a manual, now we are getting e-manual, no one is going through whole document of 200pages,
+if the model understand the whole document
+and then if we ask any questions then it will synthesise the whole document and brig us the answer.
+
+
+Speech Parsing -- in this case we are speaking something so the model should parse what we are speaking, in this case speech recognition also happens
+
+Customer review analysis/ sentiment analysis.
+
+We are trying to build the Language detection model.
+All the language detection now a days are paid service.
+we can have our own data, we can mae it learn and build our own detection model.
+
+
+
+NLP is primarily based upon
+Probability and Statistics -- some sequence of word suggested for every written word like for where it will suggest where are you going?
+
+
+ML/Deep Learning
+
+Linguistics--each language deals with various factors like social, historical, political, geographical etc.
+
+Common Sense-- based upon testing results we need to take a decision or some further action whether we need to improve the model and how to do it.
+
+
+WHY NLP?
+
+Language is one of the defining characteristics of our species.
+it helps to resolve ambuiguity in the language and adds useful numeric structure to the data
+
+a large corpus of knowledge can be organised and easily accessed using NLP.
+
+
+
+TYPES OF USE CASES IN NLP.
+
+Text classification --language detection
+-->sentiment analysisi, whether a language is hindi or english or any other. we can classify according to it.
+
+Named entity recognition -- which is noun,verb , adjective, names or places of a person, 
+helps us to derive what is persons name , what is a places name in a given text sentences.
+
+Text Parsing -- helps derives pattern in text
+
+Text synthesis - helps derive meaning from text like wiki tables.
+
+Reasoning -- if the text is the boy went to school, and if the question came where the boy is? the model should understand it and through reasoning he should be able to tell that the boy went to school.
+
+
+
+
+
+Text pre processing
+Text is very raw in nature this should be converted into some numerical thing so that the model/ machine could understand it.
+
+Before doing that we need to remove some unnecessary info called noise
+
+
+1. TOKENIZATION --  Given a sentence we can tokenize it into words. splitiing sentence.
+A large  doc can be tokenization into sentences.
+
+2. Stop Words removal.
+--> Preposition/ Articles doesnt add much info so we remove it like i / the.
+
+3. Lower case conversion -- Its necessary because a text can be written in many diff cases, the model will understand each case as different, so we convert it to standard case,
+
+4. Removing numeric/digits-- If your text has any number or digits in it, then we should remove it as it does not add any meaning.
+
+5. Removing punctuations/ Special characters
+--> Also we need to remove punctuations
+
+6. Removing characters (fo foreign languages)
+
+7. Normalisation -- there are dfferent ways of writing USA like U.S.A , US, United states of America so we need to normalize it.
+All this needs to be understood as one.
+
+8. Stemming and Lemmatization,
+--> cutting the ing form going to go.
+--> we reduced the feature by cutting ed or ing form or going to the root word of it.
+
+we do 3rd, 4th, 5th and 6th point.
+
+
+
+VECTORISATION :: 
+
+We need to conver the language into some vector forms
+
+There are lot of ways to do that
+
+1. BAG OF WORDS (Count vectorizer)
+It converts text into set of vectors containing the count of word occurences in the document.
+
+Vikash is going to market, Vikash came to home a little late.
+
+The Bag of words will see unique words in the document. 
+
+Vikash, is, came, to, going, market, little, late, 
+So the vector form for the first sentence will be created by checking the occurence of each word from BOW, [11011010] -- unigram representation
+
+It does not take into consideration the importance of words, here every word is given equal importance.
+
+2. TF-IDF (Term Frequency and Inverse Document frequency)
+
+->creates vectors from text which contains information on the more important words and the less important ones as well.
+
+TF = Ftd(Freq. of term T in a document D)/sum of(freq. of all the other terms in the document)
+
+IDF = log{total no of all the documents/ 1+ no. of times the term has occured in all the documents)}
+
+1 is added in denominator to avoid the zero value. 
+
+-->We are giving some extra info in this.
+
+Word2Vec
+--> Word2vec creates vectors that are numerical representations of word features, features such as the context of individual words. the purpose and usefullness of word2vec is to group the vectors of similar words together in vector space. that is, it detects similarities mathematically.
+
+--> some additional thing is in place, it uses some NN architecture, cosine similarity calculation, words with similar meanings are grouped together.
+
+
+We go with TF-IDF in our use case.
+
+
+
+Importing Libraries
+
+
+
+Data Preprocessing
+translate_table -- In this we are collecting all those punctuation marks which we dont really need in our data
+
+line.lower()-->converting in lower case
+line =re.sub(r"\d+") --removes all the digits and numericals which are in place
++ means more digit
+data_eng.append(line)==appending line in new data
+
